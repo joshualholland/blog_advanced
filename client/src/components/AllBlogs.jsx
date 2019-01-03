@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BlogCard from './BlogCard';
+import * as baseServices from '../services/blogs';
 
 class Blogs extends Component {
     constructor(props) {
@@ -11,8 +12,7 @@ class Blogs extends Component {
 
     async componentDidMount() {
         try {
-            let res = await fetch('/api/queries/blogswithauthors/1')
-            let data = await res.json();
+            let data = await baseServices.authoredblogs()
             let blogArray = data.map(key => {
                 return {
                     id: key.id,

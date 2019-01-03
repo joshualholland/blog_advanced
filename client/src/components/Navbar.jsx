@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AuthButton from './auth/authButton';
 
 const Navbar = () => {
     return (
@@ -18,6 +19,9 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link mr-sm-0 text-white" to='/post'>Compose</Link>
+                    </li>
+                    <li className="nav-item">
+                        <AuthButton />
                     </li>
                 </ul>
             </div>

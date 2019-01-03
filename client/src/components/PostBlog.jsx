@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as baseServices from '../services/blogs';
 
 class PostBlog extends Component {
     constructor(props) {
@@ -12,14 +13,7 @@ class PostBlog extends Component {
     async handleSubmit(e) {
         e.preventDefault()
         try {
-            await fetch('/api/blogs', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            })
-            this.props.history.replace('/')
+            await baseServices.insert(this.state);
         } catch (e) { console.log(e) }
     };
 

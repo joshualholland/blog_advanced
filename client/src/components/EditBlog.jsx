@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import * as baseServices from '../services/blogs';
 
 class EditBlog extends Component {
     constructor(props) {
@@ -12,8 +13,7 @@ class EditBlog extends Component {
 
     async componentDidMount() {
         try {
-            let res = await fetch(`/api/blogs/${this.props.match.params.id}`)
-            let data = await res.json();
+            let data = await baseServices.one(this.props.match.params.id)
             this.setState({
                 title: data.title,
                 content: data.content
@@ -24,13 +24,7 @@ class EditBlog extends Component {
     async handleEdit(e) {
         e.preventDefault()
         try {
-            let res = await fetch(`/api/blogs/${this.props.match.params.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            })
+            let res = await baseServices.update(this.state);
             this.props.history.replace(`/blog/${this.props.match.params.id}`)
         } catch (e) { console.log(e) }
     };

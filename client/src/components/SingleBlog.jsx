@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import 'isomorphic-fetch';
 import 'es6-promise';
+import * as baseServices from '../services/blogs';
 
 class SingleBlog extends Component {
     constructor(props) {
@@ -26,9 +27,7 @@ class SingleBlog extends Component {
 
     async deleteBlog() {
         try {
-            let res = await fetch(`/api/blogs/${this.props.match.params.id}`, {
-                method: 'DELETE'
-            });
+            let res = await baseServices.destroy(this.state);
             this.props.history.replace('/')
         } catch (e) { console.log(e) }
     };

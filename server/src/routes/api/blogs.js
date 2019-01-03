@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import Table from '../table';
+import Table from '../../table';
 
 let blogs = new Table("blogs")
 

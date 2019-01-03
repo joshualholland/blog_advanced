@@ -51,7 +51,7 @@ function logout() {
 }
 
 function me() {
-    return baseService.get('/api/users/me');
+    return baseService.get('/api/authors/me');
 }
 
 export { isLoggedIn, checkLogin, login, logout };

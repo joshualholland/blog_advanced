@@ -9,6 +9,10 @@ import SingleBlog from './SingleBlog';
 import EditBlog from './EditBlog';
 import Contact from './Contact';
 
+import Login from './auth/login';
+import Logout from './auth/logout';
+import PrivateRoute from './auth/privateRoute';
+
 class Navigation extends Component {
 
     render() {
@@ -18,10 +22,12 @@ class Navigation extends Component {
                     <Navbar />
                     <Switch>
                         <Route exact path="/" component={AllBlogs} />
-                        <Route exact path="/post" component={PostBlog} />
+                        <PrivateRoute exact path="/post" component={PostBlog} />
                         <Route exact path="/blog/:id" component={SingleBlog} />
-                        <Route exact path="/edit/:id" component={EditBlog} />
+                        <PrivateRoute exact path="/edit/:id" component={EditBlog} />
                         <Route exact path="/contact" component={Contact} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/logout" component={Logout} />
                     </Switch>
                     <Footer />
                 </>

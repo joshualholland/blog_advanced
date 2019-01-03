@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import spBlogTags from '../queries/blogtags';
-import spBlogsAuthors from '../queries/blogs_authors';
+import spBlogTags from '../../queries/blogtags';
+import spBlogsAuthors from '../../queries/blogs_authors';
 
 let router = Router();
 
