@@ -6,6 +6,8 @@ import routes from './routes';
 import stateRouting from './middleware/routing.mw';
 import configurePassport from './config/passport';
 
+require('dotenv').config()
+
 const CLIENT_PATH = join(__dirname, '../../client');
 
 let app = express();
@@ -20,7 +22,7 @@ app.use('/api', routes);
 
 app.use(stateRouting);
 
-let port = process.env.PORT || 3000;
+let port = process.env.TEST_PORT || 3000;
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
