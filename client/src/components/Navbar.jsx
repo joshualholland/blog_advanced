@@ -23,6 +23,9 @@ const Navbar = () => {
                     <li className="nav-item">
                         <AuthButton />
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link mr-sm-0 text-white" to='/donate'>Donate</Link>
+                    </li>
                 </ul>
             </div>
         </nav>

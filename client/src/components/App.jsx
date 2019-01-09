@@ -8,6 +8,7 @@ import PostBlog from './PostBlog';
 import SingleBlog from './SingleBlog';
 import EditBlog from './EditBlog';
 import Contact from './Contact';
+import Donate from './Donate';
 
 import Login from './auth/login';
 import Logout from './auth/logout';
@@ -28,6 +29,7 @@ class Navigation extends Component {
                         <Route exact path="/contact" component={Contact} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/logout" component={Logout} />
+                        <Route exact path="/donate" component={Donate} />
                     </Switch>
                     <Footer />
                 </>
